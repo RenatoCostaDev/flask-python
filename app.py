@@ -1,27 +1,29 @@
 from flask import Flask
 
+data = {
+	"users" : [
+        {
+            "nome": "Joao",
+            "idade": 24
+        },
+        {
+            "nome": "Francisco",
+            "idade": 27
+        }
+    ]
+}
+
 app = Flask(__name__)
-@app.route('/')
-def hello_world():
-    return '<h1>Minha Primeira página</h1>'
 
-@app.route('/segunda-pagina')
-def segunda_pagina():
-    return '<h1>Minha Segunda página</h1>'
+# methods=['GET'] is a default method.
+@app.route('/v1/users/idade/<nome>', methods=['GET']) 
+def retorna_idade(nome: str):
+    usuarios_filtrados = filter(lambda x: x["nome"] == nome.capitalize(), data["users"])
+    idade = next(usuarios_filtrados, {"idade": None})["idade"]
 
-@app.route('/form')
-def form():
-    return '''<form>
-                <label>Primeiro nome:</label>
-                <input type="text" placeholder="digite o seu primeiro nome"><br><br>\
-                <label>Segundo  Nome:</label>
-                <input type="text" placeholder="digite o seu segundo nome"><br><br>\
-                <input type="submit" value="enviar">
-            </form>'''
-
+    if nome:
+         return { 'idade': idade }
+    else:
+    	return { 'idade': None }
 
 app.run()
-
-# O comando "set FLASK_APP=app" é usado para definir a variável de ambiente FLASK_APP
-#  com o valor "app".
-# o comando "flask run", o que inicia o servidor web Flask.
