@@ -23,6 +23,6 @@ def index():
 def contatos():
     return render_template('contatos.html')
 
-app.run()
+app.run(debug=True)
 
 
