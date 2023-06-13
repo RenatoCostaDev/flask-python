@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .link {
+            font-size: 25px;
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
     <title>Lesson 4</title>
 </head>
 <body>
-    <h1>Lesson 4</h1>
+    <div class="link">
+        {% for row in links %}
+        <h1>
+            <a href="{{ row.url }}">{{row.nome}}</a>
+        </h1>
+        {% endfor %}
+    </div>
 </body>
 </html>
