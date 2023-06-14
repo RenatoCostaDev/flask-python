@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +10,74 @@
             display: flex;
             justify-content: space-around;
         }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgb(221, 221, 221);
+        }
+        .Red {
+            background-color: red;
+        }
+        .Black {
+            background-color: rgba(0, 0, 0, 0.329);
+        }
+        .Blue {
+            background-color: rgba(0, 0, 255, 0.216);
+        }
     </style>
     <title>Lesson 4</title>
 </head>
+
 <body>
     <div class="link">
+        <h1>Links: </h1>
         {% for row in links %}
         <h1>
             <a href="{{ row.url }}">{{row.nome}}</a>
         </h1>
         {% endfor %}
     </div>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+        </tr>
+        {% for row in usuarios %}
+            {% if row[1] >= media_idades: %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Modelo</th>
+            <th>Modelo</th>
+            <th>Cor</th>
+        </tr>
+        {% for row in lista_carros %}
+            <tr>
+                <td>{{row.nome}}</td>
+                <td>{{row.marca}}</td>
+                <td>{{row.modelo}}</td>
+                <td class="{{row.cor}}">{{row.cor}}</td>
+            </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
