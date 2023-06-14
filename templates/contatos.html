@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        nav .brand-logo {
+            height: 120px;
+            font-size: 50px;
+        }
+
+        .title-sidebar {
+            margin-left: 70px;
+            margin-top: 10px;
+        }
+
+        .sutitle-sidebar {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .sutitle-sidebar {
+            margin: 10px;
+        }
+
+        li {
+            font-size: 30px;
+            margin-right: 40px;
+        }
+
+        .btn-adicionar-contato {
+            display: flex;
+            justify-content: flex-end;
+            margin: 10px;
+        }
+
+        .table {
+            margin: 15px;
+        }
+    </style>
+    <title>Contatos</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper sidebar">
+            <a href="#" class="brand-logo title-sidebar">Infinity Flask</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down sutitle-sidebar">
+                <li>
+                    <ul href="sass.html">Home
+                </li>
+                <li>
+                    <ul href="badges.html">Contatos
+                </li>
+                <li>
+                    <ul href="collapsible.html">Sobre
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="btn-adicionar-contato">
+        <a class="waves-effect waves-light btn-small">ADICIONAR CONTATO
+            <span class="material-symbols-outlined">
+                add
+            </span>
+        </a>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Em@il</th>
+                    <th>Celular</th>
+                    <th>#Tags</th>
+                    <th>...</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contato in contatos %}
+                <tr>
+                    <td>{{contato.nome}} </td>
+                    <td>{{contato.email}} </td>
+                    <td>{{contato.celular}} </td>
+                    <td>
+                        <a class="waves-effect waves-light btn-small">Familia</a>
+                        <a class="waves-effect waves-light btn-small">Compras</a>
+                    </td>
+                    <td>
+                        <a class="waves-effect waves-light btn-small red">
+                            <i class="material-icons right">delete</i>
+                            Deletar
+                        </a>
+                        <a class="waves-effect waves-light btn-small red">
+                            <i class="material-icons right">edit</i>
+                            Editar
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
