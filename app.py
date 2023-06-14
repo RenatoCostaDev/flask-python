@@ -23,7 +23,7 @@ app = Flask(__name__)
 def contatos():
     return render_template(
         'contatos.html',
-        contatos=contatos,
+        contatos=contatos
     )
 
 app.run(debug=True)

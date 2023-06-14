@@ -1,0 +1,33 @@
+nav .brand-logo {
+    height: 120px;
+    font-size: 50px;
+}
+
+.title-sidebar {
+    margin-left: 70px;
+    margin-top: 10px;
+}
+
+.sutitle-sidebar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.sutitle-sidebar {
+    margin: 10px;
+}
+
+li {
+    font-size: 30px;
+    margin-right: 40px;
+}
+
+.btn-adicionar-contato {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+}
+
+.table {
+    margin: 15px;
+}

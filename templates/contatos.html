@@ -8,44 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <style>
-        nav .brand-logo {
-            height: 120px;
-            font-size: 50px;
-        }
-
-        .title-sidebar {
-            margin-left: 70px;
-            margin-top: 10px;
-        }
-
-        .sutitle-sidebar {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .sutitle-sidebar {
-            margin: 10px;
-        }
-
-        li {
-            font-size: 30px;
-            margin-right: 40px;
-        }
-
-        .btn-adicionar-contato {
-            display: flex;
-            justify-content: flex-end;
-            margin: 10px;
-        }
-
-        .table {
-            margin: 15px;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/styles.css">
     <title>Contatos</title>
 </head>
-
 <body>
     <nav>
         <div class="nav-wrapper sidebar">
@@ -83,37 +48,22 @@
             </thead>
             <tbody>
                 {% for contato in contatos %}
-                    <tr>
-                        <td>{{contato.nome}} </td>
-                        <td>{{contato.email}} </td>
-                        <td>{{contato.celular}} </td>
-                        <td>
-                            <a class="waves-effect waves-light btn-small">Familia</a>
-                            <a class="waves-effect waves-light btn-small">Compras</a>
-                        </td>
-                        <td>
-                            <a class="waves-effect waves-light btn-small red">
-                                <i class="material-icons right">delete</i>
-                                Deletar
-                            </a>
-                            <a class="waves-effect waves-light btn-small red">
-                                <i class="material-icons right">edit</i>
-                                Editar
-                            </a>
-                        </td>
-                    </tr>
+                <tr>
+                  <td>{{contato.nome}} </td>
+                  <td>{{contato.email}} </td>
+                  <td>{{contato.celular}} </td>
+                  <td>
+                      <a class="waves-effect waves-light btn-small">Familia</a>
+                      <a class="waves-effect waves-light btn-small">Compras</a>
+                  </td>
+                  <td>
+                      <a class="waves-effect waves-light btn-small">Btn deletar</a>
+                      <a class="waves-effect waves-light btn-small">Btn editar</a>
+                  </td>
+                </tr>
                 {% endfor %}
-                <div class="link">
-                    <h1>Links: </h1>
-                    {% for row in links %}
-                    <h1>
-                        <a href="{{ row.url }}">{{row.nome}}</a>
-                    </h1>
-                    {% endfor %}
-                </div>
-            </tbody>
+              </tbody>
         </table>
     </div>
 </body>
-
 </html>
