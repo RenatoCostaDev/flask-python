@@ -83,26 +83,34 @@
             </thead>
             <tbody>
                 {% for contato in contatos %}
-                <tr>
-                    <td>{{contato.nome}} </td>
-                    <td>{{contato.email}} </td>
-                    <td>{{contato.celular}} </td>
-                    <td>
-                        <a class="waves-effect waves-light btn-small">Familia</a>
-                        <a class="waves-effect waves-light btn-small">Compras</a>
-                    </td>
-                    <td>
-                        <a class="waves-effect waves-light btn-small red">
-                            <i class="material-icons right">delete</i>
-                            Deletar
-                        </a>
-                        <a class="waves-effect waves-light btn-small red">
-                            <i class="material-icons right">edit</i>
-                            Editar
-                        </a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>{{contato.nome}} </td>
+                        <td>{{contato.email}} </td>
+                        <td>{{contato.celular}} </td>
+                        <td>
+                            <a class="waves-effect waves-light btn-small">Familia</a>
+                            <a class="waves-effect waves-light btn-small">Compras</a>
+                        </td>
+                        <td>
+                            <a class="waves-effect waves-light btn-small red">
+                                <i class="material-icons right">delete</i>
+                                Deletar
+                            </a>
+                            <a class="waves-effect waves-light btn-small red">
+                                <i class="material-icons right">edit</i>
+                                Editar
+                            </a>
+                        </td>
+                    </tr>
                 {% endfor %}
+                <div class="link">
+                    <h1>Links: </h1>
+                    {% for row in links %}
+                    <h1>
+                        <a href="{{ row.url }}">{{row.nome}}</a>
+                    </h1>
+                    {% endfor %}
+                </div>
             </tbody>
         </table>
     </div>

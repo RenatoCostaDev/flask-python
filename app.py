@@ -7,7 +7,14 @@ contatos = [
         "celular" : "00000000",
         "tags" : ["trabalho"], #lista 
         'links_img_tag' : ['https://…..png'] #lista
-    }
+    },
+    {
+ 	    "nome" : "fulano",
+        "email" : "fulano@email.com",
+        "celular" : "00000000",
+        "tags" : ["trabalho"], #lista 
+        'links_img_tag' : ['https://…..png'] #lista
+    },
 ]
 
 app = Flask(__name__)
@@ -16,7 +23,7 @@ app = Flask(__name__)
 def contatos():
     return render_template(
         'contatos.html',
-        contatos=contatos
+        contatos=contatos,
     )
 
 app.run(debug=True)
