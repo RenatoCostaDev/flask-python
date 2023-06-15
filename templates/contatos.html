@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Compiled icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/static/styles.css">
     <title>Contatos</title>
 </head>
@@ -17,20 +19,20 @@
             <a href="#" class="brand-logo title-sidebar">Infinity Flask</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down sutitle-sidebar">
                 <li>
-                    <ul href="sass.html">Home
+                    <a href="sass.html">Home</a>
                 </li>
                 <li>
-                    <ul href="badges.html">Contatos
+                    <a href="badges.html">Contatos</a>
                 </li>
                 <li>
-                    <ul href="collapsible.html">Sobre
+                    <a href="collapsible.html">Sobre</a>
                 </li>
             </ul>
         </div>
     </nav>
     <div class="btn-adicionar-contato">
         <a class="waves-effect waves-light btn-small">ADICIONAR CONTATO
-            <span class="material-symbols-outlined">
+            <span class="material-icons-outlined">
                 add
             </span>
         </a>
@@ -47,20 +49,31 @@
                 </tr>
             </thead>
             <tbody>
-                {% for contato in contatos %}
-                <tr>
-                  <td>{{contato.nome}} </td>
-                  <td>{{contato.email}} </td>
-                  <td>{{contato.celular}} </td>
-                  <td>
-                      <a class="waves-effect waves-light btn-small">Familia</a>
-                      <a class="waves-effect waves-light btn-small">Compras</a>
-                  </td>
-                  <td>
-                      <a class="waves-effect waves-light btn-small">Btn deletar</a>
-                      <a class="waves-effect waves-light btn-small">Btn editar</a>
-                  </td>
-                </tr>
+                {% for contato in contatos_list %}
+                    <tr>
+                        <td>{{contato['nome']}} </td>
+                        <td>{{contato['email']}} </td>
+                        <td>{{contato['celular']}} </td>
+                        {% if contato['tags'] and contato['links_img_tag'] %}
+                            {% set tags_contato = contato['tags'] %}
+                            {% set links_img_tag = contato['links_img_tag'] %}
+                        {% endif %}
+                        {% for tag_contato, link_img_tag in zip(tags_contato, links_img_tag) %}
+                        <td>
+                            <a class="waves-effect waves-light btn-small" href="{{link_img_tag}}">{{tag_contato}}</a>
+                        </td>
+                        {% endfor %}
+                        <td>
+                            <a class="waves-effect waves-light btn-small">
+                                <i class="material-icons right" >delete</i>
+                                Deletar
+                            </a>
+                            <a class="waves-effect waves-light btn-small">
+                                <i class="material-icons right" >edith</i>
+                                Editar
+                            </a>
+                        </td>
+                    </tr>
                 {% endfor %}
               </tbody>
         </table>

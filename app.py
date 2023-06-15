@@ -1,21 +1,22 @@
-from flask import Flask,render_template
+from flask import Flask, render_template
 
-contatos = [
+contatos_list = [
     {
- 	    "nome" : "fulano",
-        "email" : "fulano@email.com",
+ 	    "nome" : "flask",
+        "email" : "flask@email.com",
         "celular" : "00000000",
-        "tags" : ["trabalho"], #lista 
-        'links_img_tag' : ['https://…..png'] #lista
+        "tags" : ["Flask", "Flask_2"], #lista 
+        'links_img_tag' : ['https://flask.palletsprojects.com/en/2.3.x/'] #lista
     },
     {
- 	    "nome" : "fulano",
-        "email" : "fulano@email.com",
+ 	    "nome" : "python",
+        "email" : "python@email.com",
         "celular" : "00000000",
-        "tags" : ["trabalho"], #lista 
-        'links_img_tag' : ['https://…..png'] #lista
+        "tags" : ["Python", "Python_2"], #lista 
+        'links_img_tag' : ['https://www.python.org/'] #lista
     },
 ]
+
 
 app = Flask(__name__)
 
@@ -23,7 +24,11 @@ app = Flask(__name__)
 def contatos():
     return render_template(
         'contatos.html',
-        contatos=contatos
+        contatos_list=contatos_list,
+        zip=zip
     )
 
 app.run(debug=True)
+#  obs: zip is a Python function as such
+#  you will need to pass the same way you pass
+#  other variables to be used in your jinja template.
