@@ -25,10 +25,17 @@ def contatos():
     return render_template(
         'contatos.html',
         contatos_list=contatos_list,
-        zip=zip
+        zip=zip,
     )
 
-app.run(debug=True)
 #  obs: zip is a Python function as such
 #  you will need to pass the same way you pass
 #  other variables to be used in your jinja template.
+
+@app.route("/adicionar-contato")
+def contatos_form():
+    return render_template(
+        'cadastro.html',
+    )
+
+app.run(debug=True)
