@@ -1,0 +1,1 @@
+json_links = '[{"nome": "linkedin", "url": "https://www.linkedin.com/in/renatocostadev/"},{"nome": "gitHub", "url": "https://github.com/RenatoCostaDev"}]'
