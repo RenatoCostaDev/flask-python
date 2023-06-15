@@ -1,9 +1,9 @@
 from flask import Flask, render_template
+import json
+from links_list import json_links
 
-links = [
-    {'nome': 'linkedin', 'url': 'https://www.linkedin.com/in/renatocostadev/'},
-    {'nome': 'gitHub', 'url': 'https://github.com/RenatoCostaDev'},
-]
+links = json.loads(json_links)
+print(links)
 
 '''
 Crie uma lista com 20 usuários (nome, idade) no python e, em seguida,
