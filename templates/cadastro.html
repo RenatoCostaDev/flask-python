@@ -31,24 +31,35 @@
     </div>
     <div class="form">
         <div class="row">
-            <form class="col s12">
+            <form 
+              action="{{url_for('contatos_form')}}"
+              method="POST"
+              class="col s12"
+            >
               <div class="row">
                 <div class="input-field col s6">
                   <i class="material-icons prefix">account_circle</i>
-                  <input id="nome" type="text" class="validate">
+                  <input id="nome" type="text" class="validate" name="nome">
                   <label for="nome">Nome</label>
                 </div>
                 <div class="input-field col s6">
                   <i class="material-icons prefix">phone</i>
-                  <input id="icon_telephone" type="tel" class="validate">
+                  <input id="icon_telephone" type="tel" class="validate" name="celular">
                   <label for="icon_telephone">Telephone</label>
                 </div>
               </div>
               <div class="row">
-                <div class="input-field col s8">
+                <div class="input-field col s6">
                   <i class="material-icons prefix">email</i>
-                  <input id="email" type="text" class="validate">
-                  <label for="email">First Name</label>
+                  <input id="email" type="text" class="validate" name="email">
+                  <label for="email">email</label>
+                </div>
+                <div class="input-field col s6">
+                  <button class="waves-effect waves-light btn-small" >ADICIONAR CONTATO
+                    <span class="material-icons-outlined">
+                      add
+                    </span>
+                  </button>
                 </div>
               </div>
             </form>

@@ -31,7 +31,7 @@
         </div>
     </nav>
     <div class="btn-adicionar-contato">
-        <a class="waves-effect waves-light btn-small">ADICIONAR CONTATO
+        <a class="waves-effect waves-light btn-small" href="{{url_for('contatos_form')}}">ADICIONAR CONTATO
             <span class="material-icons-outlined">
                 add
             </span>
@@ -44,7 +44,6 @@
                     <th>Nome</th>
                     <th>Em@il</th>
                     <th>Celular</th>
-                    <th>#Tags</th>
                     <th>...</th>
                 </tr>
             </thead>
@@ -58,13 +57,12 @@
                             {% set tags_contato = contato['tags'] %}
                             {% set links_img_tag = contato['links_img_tag'] %}
                         {% endif %}
-                        {% for tag_contato, link_img_tag in zip(tags_contato, links_img_tag) %}
-                        <td>
-                            <a class="waves-effect waves-light btn-small" href="{{link_img_tag}}">{{tag_contato}}</a>
-                        </td>
-                        {% endfor %}
-                        <td>
-                            <a class="waves-effect waves-light btn-small">
+                        <td method="POST">
+                            <a 
+                                href="{{contato.email}}/deletar_contato"
+                                class="waves-effect waves-light 
+                                btn-small"
+                            >
                                 <i class="material-icons right" >delete</i>
                                 Deletar
                             </a>
