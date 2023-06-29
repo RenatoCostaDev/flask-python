@@ -5,6 +5,10 @@ contatos_list = []
 
 app = Flask(__name__)
 
+
+
+# lesson5 routes
+
 @app.route("/contatos")
 def contatos():
     return render_template(
@@ -45,5 +49,20 @@ def atualiza_contato(email):
         return redirect(url_for('contatos'))
 
     return render_template('atualiza.html', contato=contato)
+
+
+# lesson6 routes
+
+@app.route("/modelo-pai")
+def modelo_pai():
+    return render_template(
+        'modelo_pai.html',
+    )
+
+@app.route("/modelo-filho")
+def modelo_filho():
+    return render_template(
+        'modelo_filho.html',
+    )
 
 app.run(debug=True)

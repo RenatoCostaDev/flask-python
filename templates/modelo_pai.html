@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- Compiled icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="/static/styles.css">
+        <title>{% block title %}{% endblock title %} - My Webpage</title>
+    {% endblock head %}
+</head>
+<body class="modelo-pai">
+    <div id="content">{% block content %}{% endblock content %}</div>
+    <div id="footer">
+        {% block footer %}
+            &copy;Copyright 2008 by <a href="#">RenatoCostaDev</a>
+        {% endblock footer %}
+    </div>
+    <div class="btn-head" style="margin: 0;">
+        <a class="waves-effect waves-light btn-small" href="{{url_for('modelo_filho')}}">
+            <i class="material-icons right" >arrow_forward</i>
+        modelo-filho
+        </a>
+    </div>
+</body>
+</html>
